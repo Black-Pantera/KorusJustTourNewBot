@@ -1,0 +1,23 @@
+name: zb-cailapub
+
+entryPoint: main.sc
+
+botEngine: v2
+language: ru
+
+injector: 
+   
+tests:
+  include:
+    - travelRequest.xml
+    - weatherForecast.xml
+
+nlp:
+  timeLimit:
+    enabled: true
+    timeout: 20000
+  intentNoMatchThresholds:
+    phrases: 0.6
+    patterns: 0.6
+  patternNoMatchThreshold: 0.5
+    

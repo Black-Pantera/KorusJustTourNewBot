@@ -1,0 +1,63 @@
+<test>
+    
+    <test-case id="AreYouRobot">
+        <state>AreYouRobot</state>
+        <random>0</random>
+        <q>Ты робот?</q>
+        <a>Я Артур — бот-помощник компании Just Tour, всегда готов отвечать на ваши вопросы.</a>
+        <a state="/SomethingElse" />
+    </test-case>
+    
+    <test-case id="WeatherForecast1">
+        <q>Прогноз погоды на послезавтра</q>
+        <a>Укажите, пожалуйста, название города, для которого хотите узнать прогноз погоды.</a>
+        <q>Казань</q>
+        <a state = "/WeatherForecast/TellWeather/Error"/>
+        <random>0</random>
+        <a>Хотите спросить что-то еще?</a>
+    </test-case>
+    
+    <test-case id="WeatherForecast_ThisDayHasPassed">
+        <q>Прогноз погоды</q>
+        <a>Укажите, пожалуйста, название города, для которого хотите узнать прогноз погоды.</a>
+        <q>Казань</q>
+        <a>На какую дату требуется прогноз?</a>
+        <q>На 1 января 2025</q>
+        <a state = "/WeatherForecast/ThisDayHasPassed"/>
+        <random>0</random>
+        <a>На какую дату требуется прогноз?</a>
+    </test-case>
+    
+    <test-case id="WeatherForecast_ThisDayIsNotComingSoon">
+        <q>Прогноз погоды</q>
+        <a>Укажите, пожалуйста, название города, для которого хотите узнать прогноз погоды.</a>
+        <q>Казань</q>
+        <a>На какую дату требуется прогноз?</a>
+        <q>На 1 декабря 2025</q>
+        <a state = "/WeatherForecast/ThisDayIsNotComingSoon"/>
+        <random>0</random>
+        <a>На какую дату требуется прогноз?</a>
+    </test-case>
+    
+    <test-case id="WeatherForecast3">
+        <mockData>
+            <query method="get">http://api.openweathermap.org/data/2.5/weather?APPID=${appid}&amp;units=${units}&amp;lang=${lang}&amp;lat=${lat}&amp;lon=${lon}</query>
+            <parameters>
+                <appid>106ad0548ad7d7b7eb02682ec63886b4</appid> 
+                <units>metric</units>
+                <lang>ru</lang>
+                <lat>53.20007</lat>
+                <lon>50.15</lon>
+            </parameters>
+            <response>
+            {"coord":{"lon":50.22,"lat":53.24},"weather":[{"id":804,"main":"Clouds","description":"пасмурно","icon":"04d"}],"base":"stations","main":{"temp":-9.99,"feels_like":-16.35,"temp_min":-9.99,"temp_max":-9.99,"pressure":1031,"humidity":90,"sea_level":1031,"grnd_level":1020},"visibility":2253,"wind":{"speed":3.79,"deg":200,"gust":6.12},"clouds":{"all":100},"dt":1739961277,"sys":{"type":1,"id":9051,"country":"RU","sunrise":1739936946,"sunset":1739973428},"timezone":14400,"id":499099,"name":"Самара","cod":200}
+            </response>
+        </mockData>
+        <q>погода в Самаре на сегодня</q>
+        <random>0</random>
+        <a>Смог узнать для вас прогноз: сегодня в Самаре будет -10 градусов по Цельсию.</a>
+        <random>0</random>
+        <a>Хотите оставить заявку на подбор тура в Россию?</a>
+    </test-case>	
+
+</test>
