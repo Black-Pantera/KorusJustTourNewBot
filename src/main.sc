@@ -92,19 +92,12 @@ theme: /
                 $session.stateCounterInARow = 0
                     
             go!: /SomethingElse
-            
-    state: AreYouRobot
-        intent!: /robot
-        random:
-            a: Я Артур — бот-помощник компании Just Tour, всегда готов отвечать на ваши вопросы.
-            a: Вы общаетесь с Артуром - чат-ботом, разработанным командой Just Tour, чтобы помогать вам. Всегда рад пообщаться с вами!
-        go!: /SomethingElse
     
     state: WhatCanYouDo
         intent!: /whatCanYouDo
         random:
-            a: Умею рассказывать о погоде в городах мира и составлять заявки на подбор подходящего именно вам путешествия.
-            a: С удовольствием расскажу вам о ближайших метеопрогнозах для разных городов и помогу составить запрос на подбор тура.
+            a: Могу помочь разобраться с работой в личном кабинете.
+            a: Помогаю с работой в личном кабинете.
         go!: /SomethingElse
         
     state: HowCanIHelpYou
@@ -114,9 +107,6 @@ theme: /
             a: Подскажите, какой у вас вопрос?
         script:
             $session.stateCounterInARow = 0;
-        buttons:
-            "Узнать прогноз погоды" -> /WeatherForecast
-            "Оформить заявку на подбор тура" -> /TravelRequest
         q: * $noQuestions * || toState = "/DontHaveQuestions", onlyThisState = true
                 
         state: LocalCatchAll || noContex = true
@@ -141,8 +131,6 @@ theme: /
             a: Могу ли я помочь чем-то еще?
             a: Подскажите, у вас остались ещё вопросы?
         buttons:
-            "Узнать прогноз погоды" -> /WeatherForecast
-            "Оформить заявку на подбор тура" -> /TravelRequest
         q: * $noWant * || toState = "/DontHaveQuestions", onlyThisState = true
         q: * $yesWant * || toState = "/HowCanIHelpYou", onlyThisState = true
         
@@ -157,9 +145,6 @@ theme: /
                     a: Извините, не совсем понял. Пожалуйста, подскажите, могу ли я чем-то помочь?
                     a: К сожалению, не смог понять, что вы имеете в виду. Подскажите, что вас интересует?
                     
-                buttons:
-                    "Узнать прогноз погоды" -> /WeatherForecast
-                    "Оформить заявку на подбор тура" -> /TravelRequest
             else:
                 a: Простите, так и не смог понять, что вы имели ввиду.
                 go!: /GoodBye
