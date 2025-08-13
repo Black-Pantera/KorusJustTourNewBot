@@ -7,10 +7,6 @@ language: ru
 
 injector: 
    
-tests:
-  include:
-    - travelRequest.xml
-    - weatherForecast.xml
 
 nlp:
   timeLimit:
