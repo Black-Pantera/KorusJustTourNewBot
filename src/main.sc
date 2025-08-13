@@ -10,10 +10,7 @@ require: dateTime/moment.min.js
 require: common.js
     module = sys.zb-common
   
-require: funcs.js
 require: patterns.sc
-require: weatherForecast.sc
-require: travelRequest.sc
 
 init: 
     var SESSION_TIMEOUT_MS = 20200000;    //86400000; // Один день
@@ -130,9 +127,6 @@ theme: /
             a: Хотите спросить что-то еще?
             a: Могу ли я помочь чем-то еще?
             a: Подскажите, у вас остались ещё вопросы?
-        buttons:
-        q: * $noWant * || toState = "/DontHaveQuestions", onlyThisState = true
-        q: * $yesWant * || toState = "/HowCanIHelpYou", onlyThisState = true
         
         state: LocalCatchAll || noContex = true
             event: noMatch
