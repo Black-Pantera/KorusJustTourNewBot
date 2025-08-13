@@ -1,15 +1,3 @@
-
-require: slotfilling/slotFilling.sc
-  module = sys.zb-common
-require: city/city.sc
-    module = sys.zb-common  
-require: name/name.sc
-    module = sys.zb-common
-require: dateTime/moment.min.js
-    module = sys.zb-common   
-require: common.js
-    module = sys.zb-common
-  
 require: patterns.sc
 
 init: 
@@ -25,31 +13,6 @@ init:
            
         $reactions.buttons({ text: "В главное меню", transition: "/Start" })
     }); 
-    
-    bind("preProcess", function($context) {
-        if (!$context.session.stateCounter) {
-            $context.session.stateCounter = 0;
-        }
-        
-        if (!$context.session.stateCounterInARow) {
-            $context.session.stateCounterInARow = 0;
-        }
-        
-        if ($context.session.lastActiveTime) {
-            var interval = $jsapi.currentTime() - $context.session.lastActiveTime;
-            if (interval > SESSION_TIMEOUT_MS) $jsapi.startSession();
-        }
-    });
-        
-    bind("postProcess", function($context) {
-        $context.session.lastState = $context.currentState;
-        $context.session.lastActiveTime = $jsapi.currentTime();
-        
-        if (checkState($context.currentState)) { 
-            $context.session.stateCounter = 0;
-            $context.session.stateCounterInARow = 0;
-        }
-    });
   
 theme: /
     
