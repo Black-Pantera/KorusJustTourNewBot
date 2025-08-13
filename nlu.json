@@ -1,7 +1,7 @@
 {
   "project" : {
-    "id" : "korusjusttour-1000193881-Zgr",
-    "name" : "korusjusttour-1000193881-Zgr",
+    "id" : "korusjusttour-1000233980-eHQ",
+    "name" : "korusjusttour-1000233980-eHQ",
     "folder" : "/platform"
   },
   "settings" : {
@@ -95,12 +95,14 @@
       "name" : "Date",
       "entity" : "duckling.date",
       "required" : false,
-      "prompts" : [ ]
+      "prompts" : [ ],
+      "array" : false
     }, {
       "name" : "City",
       "entity" : "Cities",
       "required" : false,
-      "prompts" : [ ]
+      "prompts" : [ ],
+      "array" : false
     } ],
     "priority" : 0
   }, {
@@ -321,7 +323,8 @@
       "name" : "Packages",
       "entity" : "Packages",
       "required" : true,
-      "prompts" : [ ]
+      "prompts" : [ ],
+      "array" : false
     } ],
     "priority" : 0
   }, {
@@ -437,7 +440,8 @@
       "name" : "Имя",
       "entity" : "pymorphy.name",
       "required" : true,
-      "prompts" : [ "Введите, пожалуйста, ваше имя." ]
+      "prompts" : [ "Введите, пожалуйста, ваше имя." ],
+      "array" : false
     } ],
     "priority" : 0
   }, {
