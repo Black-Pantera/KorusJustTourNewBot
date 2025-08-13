@@ -102,8 +102,6 @@ theme: /
             a: Чем могу помочь?
             a: Что вас интересует?
             a: Подскажите, какой у вас вопрос?
-        script:
-            $session.stateCounterInARow = 0;
         q: * $noQuestions * || toState = "/DontHaveQuestions", onlyThisState = true
                 
         state: LocalCatchAll || noContex = true
