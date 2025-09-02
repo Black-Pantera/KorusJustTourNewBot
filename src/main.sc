@@ -22,12 +22,10 @@ theme: /
         q!: * $hello *
         script:
             $jsapi.startSession();
-            
-        random:
-                a: Здравствуйте! Я бот компании Х. Помогу вам разобраться с работой в личном кабинете.
-                a: Приветствую вас! Я бот компании Х. Подскажу вам, как работать в личном кабинете.
+        random: 
+            a: Добрый день! В этом чате мы подскажем, как работать в личном кабинете.
         go!: /Operator
-            
+
     state: GlobalCatchAll || noContext = true
         event!: noMatch
         a: Кажется, этот вопрос не в моей компетенции. Но я постоянно учусь новому, и, надеюсь, совсем скоро научусь отвечать и на него.
@@ -57,16 +55,22 @@ theme: /
             
     state: Operator
         intent!: /ПереводНаОператора
-        TransferToOperator:
+        TransferToOperator: 
             titleOfCloseButton = Переключить обратно на бота
-            messageBeforeTransfer = Подождите немного. Соединяю вас со специалистом.
+            messageBeforeTransfer = Подскажите, какой у вас вопрос?
             ignoreOffline = true
             messageForWaitingOperator = Вам ответит первый освободившийся оператор.
             noOperatorsOnlineState = /Operator/Error
             dialogCompletedState = /SomethingElse
             sendMessageHistoryAmount = 5
             sendMessagesToOperator = true
-            
+            messageBeforeTransferHtml = 
+            prechatAttributes = {}
+            messageForWaitingOperatorHtml = 
+            actions = 
+            htmlEnabled = false
+            destination = 
+
         state: Error
             a: К сожалению, все операторы сейчас заняты. Мы обязательно свяжемся с вами позже.
             go!: /SomethingElse
